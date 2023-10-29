@@ -8,4 +8,12 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+
+var admin = require("firebase-admin");
+
+var serviceAccount = require("./med-vision.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+
 });
